@@ -75,7 +75,7 @@ if (contactForm) {
 
         // Отправка данных на вебхук Make.com
         try {
-            const response = await fetch('https://hook.eu1.make.com/vc7olb8of3bjcay79ulfjm933gowksla', {
+            const response = await fetch('https://hook.eu1.make.com/6rm361v345pzrb4dxqpec668uip5ld89', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -105,53 +105,14 @@ if (contactForm) {
     });
 }
 
-// Функция сохранения заявки (для демонстрации, больше не используется формой)
-// Но оставим на случай, если понадобится позже
+// Функция сохранения заявки (для демонстрации)
 function saveLead(leadData) {
     let leads = JSON.parse(localStorage.getItem('leads') || '[]');
     leads.push(leadData);
     localStorage.setItem('leads', JSON.stringify(leads));
 }
 
-// Динамическое добавление кейсов (когда появятся)
-function addCase(caseData) {
-    const casesContainer = document.getElementById('casesContainer');
-    const placeholder = document.querySelector('.case-card.placeholder');
-    
-    if (placeholder && casesContainer) {
-        // Убираем плейсхолдер, когда появится первый кейс
-        casesContainer.innerHTML = '';
-    }
-    
-    const caseHTML = `
-        <div class="case-card">
-            <div class="case-icon">
-                <i class="fas ${caseData.icon || 'fa-briefcase'}"></i>
-            </div>
-            <h3>${caseData.title}</h3>
-            <p class="case-client"><strong>Клиент:</strong> ${caseData.client}</p>
-            <p class="case-result"><strong>Результат:</strong> ${caseData.result}</p>
-            <p class="case-description">${caseData.description}</p>
-            ${caseData.link ? `<a href="${caseData.link}" class="btn btn-outline small">Подробнее</a>` : ''}
-        </div>
-    `;
-    
-    if (casesContainer) {
-        casesContainer.insertAdjacentHTML('beforeend', caseHTML);
-    }
-}
-
-// Пример добавления кейса (раскомментирован)
-addCase({
-    icon: 'fa-gavel',
-    title: 'Бот для юриста',
-    client: 'Юридическая консультация',
-    result: '+40% заявок, освобождено 20 часов в неделю',
-    description: 'Автоматизировали ответы на типовые вопросы и запись на консультации.',
-    link: '#'
-});
-
-// Счётчик посетителей (простой)
+// Счётчик посетителей
 function updateVisitorCounter() {
     let visits = localStorage.getItem('visits') || 0;
     visits = parseInt(visits) + 1;
