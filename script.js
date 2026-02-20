@@ -92,7 +92,7 @@ if (contactForm) {
         const formData = {
             name: document.getElementById('name').value,
             phone: document.getElementById('phone').value,
-            niche: document.getElementById('niche').value,
+            business: document.getElementById('business').value,
             message: document.getElementById('message').value,
             date: new Date().toLocaleString('ru-RU')
         };
