@@ -992,7 +992,7 @@ h1, h2, h3, h4, h5, h6 {
     .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
 
     .hero .container { grid-template-columns: 1fr; text-align: center; }
-    .hero-image { display: none; }
+    .hero-image { display: none !important; }
     .hero-buttons { justify-content: center; flex-wrap: wrap; }
     .hero-stats { justify-content: center; gap: 1.5rem; }
 
