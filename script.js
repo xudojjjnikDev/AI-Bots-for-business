@@ -1,4 +1,4 @@
-// script.js — улучшенная версия
+// script.js — исправленная версия
 
 // ===== МОБИЛЬНОЕ МЕНЮ =====
 const hamburger = document.getElementById('hamburger');
@@ -29,9 +29,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ===== АНИМАЦИЯ ПРИ СКРОЛЛЕ (ИСПРАВЛЕНА) =====
-// Важно: НЕ добавляем анимацию на section целиком и НЕ трогаем hero
-// Только карточки и шаги — они точно ниже fold
+// ===== АНИМАЦИЯ ПРИ СКРОЛЛЕ =====
 const animatedElements = document.querySelectorAll(
     '.problem-card, .pricing-card, .case-card, .review-card, .step, .faq-item, .about-wrapper, .guarantee-block'
 );
@@ -45,7 +43,7 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.remove('fade-hidden');
-            observer.unobserve(entry.target); // Анимируем только раз
+            observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
@@ -63,13 +61,11 @@ document.querySelectorAll('.faq-item').forEach(item => {
     question.addEventListener('click', () => {
         const isOpen = item.classList.contains('open');
 
-        // Закрыть все открытые
         document.querySelectorAll('.faq-item.open').forEach(openItem => {
             openItem.classList.remove('open');
             openItem.querySelector('.faq-answer').classList.remove('open');
         });
 
-        // Открыть текущий (если не был открыт)
         if (!isOpen) {
             item.classList.add('open');
             answer.classList.add('open');
@@ -85,13 +81,31 @@ if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
+        // Защита от ботов (honeypot)
+        if (document.getElementById('website').value !== '') return;
+
         const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+        // ✅ ИСПРАВЛЕНО: блокируем кнопку СРАЗУ, до всех проверок
         submitBtn.textContent = 'Отправляю...';
         submitBtn.disabled = true;
 
+        // ✅ ИСПРАВЛЕНО: валидация телефона ИЛИ Telegram-username
+        const phoneValue = document.getElementById('phone').value.trim();
+        const isTelegram = phoneValue.startsWith('@') && phoneValue.length >= 2;
+        const phoneDigits = phoneValue.replace(/\D/g, '');
+        const isPhone = phoneDigits.length >= 10 && phoneDigits.length <= 12;
+
+        if (!isTelegram && !isPhone) {
+            alert('Введите корректный номер телефона или Telegram (например, @username)');
+            submitBtn.textContent = 'Отправить заявку';
+            submitBtn.disabled = false;
+            return;
+        }
+
         const formData = {
             name: document.getElementById('name').value,
-            phone: document.getElementById('phone').value,
+            phone: phoneValue,
             business: document.getElementById('business').value,
             message: document.getElementById('message').value,
             date: new Date().toLocaleString('ru-RU')
@@ -108,7 +122,6 @@ if (contactForm) {
                 contactForm.style.display = 'none';
                 formSuccess.style.display = 'block';
 
-                // Вернуть форму через 5 секунд
                 setTimeout(() => {
                     contactForm.reset();
                     contactForm.style.display = 'block';
