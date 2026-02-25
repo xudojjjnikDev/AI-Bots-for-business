@@ -6,11 +6,26 @@
     <title>AIBots — Telegram-боты для бизнеса | Автоматизация 24/7</title>
     <meta name="description" content="Создаю Telegram-ботов для автоматизации записи клиентов. Юристы, стоматологии, автосервисы, бьюти-мастера. Разовая настройка от 9 900 ₽. Бот работает 24/7 — вы получаете готовые заявки.">
 
-    <!-- OG теги для превью в мессенджерах -->
+    <!-- ===== OG / Social preview ===== -->
     <meta property="og:title" content="AIBots — Telegram-боты для бизнеса">
     <meta property="og:description" content="Пока вы спите — бот записывает клиентов. Автоматизация для юристов, стоматологий, автосервисов, бьюти. От 9 900 ₽.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ru_RU">
+    <!-- ✅ ДОБАВЛЕНО: og:url — без него соцсети путаются при шаринге -->
+    <meta property="og:url" content="https://xudojjjnikdev.github.io/aibots/">
+    <!-- ✅ ДОБАВЛЕНО: og:image — замените og-image.png на реальный баннер 1200×630px -->
+    <meta property="og:image" content="og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <!-- Twitter/X card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AIBots — Telegram-боты для бизнеса">
+    <meta name="twitter:description" content="Пока вы спите — бот записывает клиентов. От 9 900 ₽.">
+    <meta name="twitter:image" content="og-image.png">
+
+    <!-- ✅ ДОБАВЛЕНО: Favicon — замените favicon.png на реальную иконку -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
 
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -217,17 +232,34 @@
             <p class="section-subtitle">Реальные проекты, которые уже работают и приносят результат</p>
 
             <div class="cases-grid">
-                <!-- Кейс 1 -->
-                <div class="case-card">
-                    <div class="case-icon" style="background: #f8f0ff;">
-                        <i class="fas fa-hand-sparkles" style="color: #9d4edd;"></i>
+                <div class="case-card case-card--featured">
+                    <div class="case-card-top">
+                        <div class="case-icon" style="background: #f8f0ff;">
+                            <i class="fas fa-hand-sparkles" style="color: #9d4edd;"></i>
+                        </div>
+                        <div class="case-tag">Бьюти / Маникюр на дому</div>
+                        <h3>Сайт + бот для автозаписи</h3>
+                        <p class="case-description">
+                            Мастер больше не отвечает на вопросы в 2 часа ночи. 
+                            Клиенты самостоятельно выбирают услугу, дату, время — бот записывает и напоминает за день до визита.
+                        </p>
                     </div>
-                    <div class="case-tag">Бьюти / Маникюр на дому</div>
-                    <h3>Сайт + бот для автозаписи</h3>
-                    <p class="case-description">
-                        Мастер больше не отвечает на вопросы в 2 часа ночи. 
-                        Клиенты самостоятельно выбирают услугу, дату, время — бот записывает и напоминает за день до визита.
-                    </p>
+                    <!-- Видео демо бота -->
+                    <div class="case-video-wrapper">
+                        <video
+                            src="bot-demo.mp4"
+                            controls
+                            playsinline
+                            preload="metadata"
+                            aria-label="Демо работы Telegram-бота для записи на маникюр"
+                        >
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                        <div class="case-video-badge">
+                            <i class="fas fa-circle" style="color:#ff4444; font-size:0.6rem;"></i>
+                            Живая запись бота
+                        </div>
+                    </div>
                     <div class="case-result">
                         <span class="result-badge">✅ Заявки 24/7</span>
                         <span class="result-badge">📉 Неявок стало меньше</span>
@@ -235,7 +267,6 @@
                     <a href="https://xudojjjnikdev.github.io/nails-site/" class="case-link" target="_blank">Смотреть кейс →</a>
                 </div>
 
-                <!-- Кейс 2 -->
                 <div class="case-card">
                     <div class="case-icon" style="background: #e8f5e9;">
                         <i class="fas fa-screwdriver-wrench" style="color: #2e7d32;"></i>
@@ -253,7 +284,6 @@
                     <a href="#contact" class="case-link">Хочу такой же →</a>
                 </div>
 
-                <!-- Кейс 3: мета -->
                 <div class="case-card">
                     <div class="case-icon" style="background: #e6f7ff;">
                         <i class="fas fa-robot" style="color: #0077b6;"></i>
@@ -341,7 +371,7 @@
                 </div>
                 <div class="about-content">
                     <h2 class="section-title" style="text-align:left; margin-bottom: 1.5rem;">Кто <span class="accent">делает</span> ваших ботов</h2>
-                    <p>Меня зовут <strong>Александр</strong>. Я занимаюсь автоматизацией малого бизнеса — пишу Telegram-ботов на Python и выстраиваю системы работы с заявками через Make.com и Google Sheets.</p>
+                    <p>Меня зовут <strong>Никита</strong>. Я занимаюсь автоматизацией малого бизнеса — пишу Telegram-ботов на Python и выстраиваю системы работы с заявками через Make.com и Google Sheets.</p>
                     <p style="margin-top: 1rem;">Работаю с <strong>любой нишей малого бизнеса</strong> — юристы, стоматологии, автосервисы, бьюти-мастера, фитнес, репетиторы и не только. Если у вас есть клиенты и вы устали отвечать на одни и те же вопросы — я разберусь в специфике и настрою бота под ваш сценарий.</p>
                     <p style="margin-top: 1rem;">Не продаю "коробочные" решения — каждый бот настроен под конкретный бизнес.</p>
                     <div class="about-contacts">
@@ -442,21 +472,28 @@
                 </div>
                 <div class="contact-form">
                     <form id="contactForm">
+                        <!-- Honeypot — скрытое поле для защиты от ботов -->
+                        <div style="display:none" aria-hidden="true">
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
                         <div class="form-group">
                             <input type="text" id="name" name="name" placeholder="Ваше имя" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" id="phone" name="phone" placeholder="Телефон или Telegram" required>
+                            <!-- ✅ ИСПРАВЛЕНО: placeholder уточняет допустимые форматы -->
+                            <input type="text" id="phone" name="phone" placeholder="Телефон (+7...) или Telegram (@username)" required>
                         </div>
                         <div class="form-group">
-                            <select id="niche" name="niche">
-                                <option value="" disabled selected>Ваша ниша</option>
-                                <option>Бьюти (маникюр, косметология)</option>
-                                <option>Стоматология</option>
-                                <option>Автосервис</option>
-                                <option>Юридические услуги</option>
-                                <option>Другое</option>
-                            </select>
+                            <input type="text" id="business" name="business" placeholder="Ваша ниша" list="niche-list">
+                            <datalist id="niche-list">
+                                <option value="Бьюти (маникюр, косметология)">
+                                <option value="Стоматология">
+                                <option value="Автосервис">
+                                <option value="Юридические услуги">
+                                <option value="Фитнес / тренер">
+                                <option value="Репетитор">
+                                <option value="Другое">
+                            </datalist>
                         </div>
                         <div class="form-group">
                             <textarea id="message" name="message" placeholder="Кратко о задаче (необязательно)" rows="3"></textarea>
@@ -490,6 +527,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- Плавающая кнопка Telegram -->
+    <a href="https://t.me/xudojjjnik" target="_blank" class="tg-float" title="Написать в Telegram" aria-label="Написать в Telegram">
+        <i class="fab fa-telegram"></i>
+        <span class="tg-float-tooltip">Написать в Telegram</span>
+    </a>
 
     <script src="script.js"></script>
 </body>
