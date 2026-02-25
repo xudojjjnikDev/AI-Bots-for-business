@@ -961,6 +961,249 @@ h1, h2, h3, h4, h5, h6 {
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
+
+/* ===== ДЕМО ВИДЕО ===== */
+.demo-video {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.video-wrapper {
+    position: relative;
+    max-width: 480px;
+    margin: 0 auto 2rem;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+    background: #000;
+}
+
+.video-wrapper video {
+    width: 100%;
+    display: block;
+    border-radius: 24px;
+}
+
+.video-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(8px);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.video-caption {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.video-caption-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.video-caption-item i {
+    color: #4CAF50;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+/* ===== ПЛАВАЮЩАЯ КНОПКА TELEGRAM ===== */
+.tg-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 60px;
+    height: 60px;
+    background: #0088cc;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(0,136,204,0.45);
+    z-index: 9999;
+    transition: all 0.3s ease;
+    animation: tg-pulse 2.5s infinite;
+}
+
+.tg-float:hover {
+    transform: scale(1.12);
+    box-shadow: 0 10px 32px rgba(0,136,204,0.6);
+    animation: none;
+}
+
+.tg-float-tooltip {
+    position: absolute;
+    right: 72px;
+    background: var(--primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.tg-float-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-right: none;
+    border-left-color: var(--primary);
+}
+
+.tg-float:hover .tg-float-tooltip {
+    opacity: 1;
+}
+
+@keyframes tg-pulse {
+    0%, 100% { box-shadow: 0 6px 24px rgba(0,136,204,0.45); }
+    50% { box-shadow: 0 6px 32px rgba(0,136,204,0.75), 0 0 0 10px rgba(0,136,204,0.1); }
+}
+
+@media (max-width: 768px) {
+    .tg-float { bottom: 20px; right: 20px; width: 54px; height: 54px; font-size: 1.4rem; }
+    .tg-float-tooltip { display: none; }
+    .video-caption { gap: 1.2rem; flex-direction: column; align-items: center; }
+}
+
+
+/* ===== ВИДЕО В КАРТОЧКЕ КЕЙСА ===== */
+.case-card--featured {
+    border: 2px solid rgba(157, 78, 221, 0.25);
+}
+
+.case-card-top {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.case-video-wrapper {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+    margin: 0.4rem 0;
+}
+
+.case-video-wrapper video {
+    width: 100%;
+    display: block;
+    border-radius: 16px;
+    max-height: 320px;
+    object-fit: cover;
+}
+
+.case-video-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* ===== ПЛАВАЮЩАЯ КНОПКА TELEGRAM ===== */
+.tg-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 60px;
+    height: 60px;
+    background: #0088cc;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(0,136,204,0.45);
+    z-index: 9999;
+    transition: all 0.3s ease;
+    animation: tg-pulse 2.5s infinite;
+}
+
+.tg-float:hover {
+    transform: scale(1.12);
+    box-shadow: 0 10px 32px rgba(0,136,204,0.6);
+    animation: none;
+}
+
+.tg-float-tooltip {
+    position: absolute;
+    right: 72px;
+    background: var(--primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.tg-float-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-right: none;
+    border-left-color: var(--primary);
+}
+
+.tg-float:hover .tg-float-tooltip {
+    opacity: 1;
+}
+
+@keyframes tg-pulse {
+    0%, 100% { box-shadow: 0 6px 24px rgba(0,136,204,0.45); }
+    50% { box-shadow: 0 6px 32px rgba(0,136,204,0.75), 0 0 0 10px rgba(0,136,204,0.1); }
+}
+
+@media (max-width: 768px) {
+    .tg-float { bottom: 20px; right: 20px; width: 54px; height: 54px; font-size: 1.4rem; }
+    .tg-float-tooltip { display: none; }
+    .video-caption { gap: 1.2rem; flex-direction: column; align-items: center; }
+}
+
+
 /* ===== АДАПТИВНОСТЬ ===== */
 @media (max-width: 992px) {
     .hero-title { font-size: 2.6rem; }
